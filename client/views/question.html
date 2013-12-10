@@ -1,0 +1,20 @@
+<template name="question">
+	<div class = "questions">
+		<div class = "page-content">
+			<div class="page-header">
+				<h1>Questions</h1>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class = "projects col-xs-12">
+						
+								{{#each questions}}
+								{{> questionItem}}
+								{{/each}}
+							
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

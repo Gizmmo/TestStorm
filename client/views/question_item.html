@@ -1,0 +1,36 @@
+<template name = "questionItem">
+	<div class = "questionSec">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<!--<h3 class="panel-title">{{getNum}} out of {{getTotal}}</h3>-->
+			</div>
+			<div class="panel-body">
+				<form class="main">
+					<div class="control-group">
+						<div class="controls">
+							
+						</div>
+					</div>
+
+					<div class="control-group">
+						<input type="radio" name="answer" value="{{getAnswer}}">{{getAnswerAgain}}<br>
+						<input type="radio" name="answer" value="{{getAnswer}}">{{getAnswerAgain}}<br>
+						<input type="radio" name="answer" value="{{getAnswer}}">{{getAnswerAgain}}<br>
+						<input type="radio" name="answer" value="{{getAnswer}}">{{getAnswerAgain}}<br>
+
+					</div>
+
+					<h4><label name="end" id="end">Please submit your Answer</label><h4>
+
+					<div class="control-group">
+						<div class="controls">
+							<input type="submit" value="Submit" class="btn btn-primary"/>
+						</div>
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+</template>
