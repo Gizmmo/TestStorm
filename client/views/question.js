@@ -4,6 +4,14 @@ Template.question.helpers({
 	 * @return collection All projects in collection
 	 */
 	questions: function() {
-		return Data.find({});
+		foundData = Data.find({}).fetch();
+		numLength = foundData.length;
+		randomData = [];
+		for(i = 0; i < numLength; i++){
+			randomNum = Math.floor(Math.random() * foundData.length);
+			randomData[i] = foundData[randomNum];
+			foundData.splice(randomNum, 1);
+		}
+		return randomData;
 	}
 });

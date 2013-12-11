@@ -1,6 +1,9 @@
 answer = 0;
 current = 1;
+index = 0;
+chosenAnswers = [];
 returnAns = "";
+allItems = [];
 
 Template.questionItem.helpers({
 	getNum: function () {
@@ -15,21 +18,37 @@ Template.questionItem.helpers({
 		returnAns = "";
 		if (answer === 0){
 			answer = Math.floor((Math.random()*4)+1);
-		}
-		console.log("Current: " + current + " Answer: " + answer);
-		if (current === answer){
-			current++;
-			returnAns = this.answer;
-		} else {
-			current++;
-			var items = Data.find({answer : {$ne : this.answer}}).fetch();
-			var found = items[Math.floor(Math.random() * items.length)];
-			returnAns = found.answer;
-		}
+			allItems = Data.find({answer : {$ne : this.answer}}).fetch();
 
-		if (current === 5){
-			current = 1;
-			answer = 0;
+			if (allItems.length >= 3){
+				for(i = 0; i < 3; i++){
+					randomNum = Math.floor(Math.random() * allItems.length);
+					chosenAnswers[i] = allItems[randomNum];
+					allItems.splice(randomNum, 1);
+				}
+			}
+			index = 0;
+		}
+		if (allItems.length >= 3 || chosenAnswers.length >= 3){
+			if (current === answer){
+				current++;
+				returnAns = this.answer;
+			} else {
+				current++;
+				var found = chosenAnswers[index];
+				returnAns = found.answer;
+				index++;
+			}
+
+			if (current === 5){
+				answer = 0;
+				current = 1;
+				index = 0;
+				chosenAnswers = [];
+				allItems = [];
+			}
+		} else {
+			returnAns = "You need more questions in the system first";
 		}
 
 		return returnAns;
@@ -53,7 +72,7 @@ Template.questionItem.events({
 		if ($(chosen).val() === this.answer){
 			$("#end" + myId).html("You are Correct!");
 		} else {
-			$("#end").html("The Correct answer is " + this.answer);
+			$("#end" + myId).html("The Correct answer is " + this.answer);
 		}
 
 	}

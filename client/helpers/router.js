@@ -11,6 +11,10 @@ Meteor.Router.add({
 
 	'/createQuestion' : {
 		to: "createQuestion"
+	},
+
+	'/answerKey' : {
+		to: "answerKey"
 	}
 
 
