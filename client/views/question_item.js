@@ -45,10 +45,13 @@ Template.questionItem.events({
 		//This will stop the default submitting of the form
 		event.preventDefault();
 
-		var chosen = template.find('input:radio[name=answer]:checked');
+		var clickedElement = event.target;
+		var myId = $(clickedElement).attr('id');
+
+		var chosen = template.find('input:radio[name=' + myId + ']:checked');
 		
 		if ($(chosen).val() === this.answer){
-			$("#end").html("You are Correct!");
+			$("#end" + myId).html("You are Correct!");
 		} else {
 			$("#end").html("The Correct answer is " + this.answer);
 		}

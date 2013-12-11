@@ -2,10 +2,10 @@
 	<div class = "questionSec">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<!--<h3 class="panel-title">{{getNum}} out of {{getTotal}}</h3>-->
+				<h3 class="panel-title">{{question}}</h3>
 			</div>
 			<div class="panel-body">
-				<form class="main">
+				<form class="main" id="{{_id}}">
 					<div class="control-group">
 						<div class="controls">
 							
@@ -13,14 +13,14 @@
 					</div>
 
 					<div class="control-group">
-						<input type="radio" name="answer" value="{{getAnswer}}">{{getAnswerAgain}}<br>
-						<input type="radio" name="answer" value="{{getAnswer}}">{{getAnswerAgain}}<br>
-						<input type="radio" name="answer" value="{{getAnswer}}">{{getAnswerAgain}}<br>
-						<input type="radio" name="answer" value="{{getAnswer}}">{{getAnswerAgain}}<br>
+						<input type="radio" name="{{_id}}" class="radioBreak" value="{{getAnswer}}">{{getAnswerAgain}}<br><br><br>
+						<input type="radio" name="{{_id}}" class="radioBreak" value="{{getAnswer}}">{{getAnswerAgain}}<br><br><br>
+						<input type="radio" name="{{_id}}" class="radioBreak" value="{{getAnswer}}">{{getAnswerAgain}}<br><br><br>
+						<input type="radio" name="{{_id}}" class="radioBreak" value="{{getAnswer}}">{{getAnswerAgain}}<br><br><br>
 
 					</div>
 
-					<h4><label name="end" id="end">Please submit your Answer</label><h4>
+					<h4><label name="end" id="end{{_id}}">Please submit your Answer</label><h4>
 
 					<div class="control-group">
 						<div class="controls">
